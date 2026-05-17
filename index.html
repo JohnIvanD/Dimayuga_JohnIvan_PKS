@@ -353,8 +353,8 @@
     max-width: 1200px; margin: 0 auto;
   }
   .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 1.5rem;
   }
   .project-card {
@@ -507,6 +507,97 @@
   }
   footer span { color: var(--accent); }
 
+  /* PROJECT IMAGE PLACEHOLDER */
+  .project-img {
+    width: 100%; height: 320px;
+    background: var(--bg3);
+    border: 1px dashed var(--border);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.25rem;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+    overflow: hidden;
+    position: relative;
+  }
+  .project-img img { width: 100%; height: 100%; object-fit: cover; }
+  .project-img .img-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .project-img-icon {
+    font-size: 2rem; margin-bottom: 0.4rem;
+    display: block; text-align: center; opacity: 0.3;
+    pointer-events: none;
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+
+  .project-img {
+    background: rgba(255,255,255,0.03);
+  }
+
+  .project-img > div {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .project-img img {
+    display: block;
+  }
+
+  /* RECIPE FEATURES */
+  .recipe-features {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .recipe-feature {
+    background: rgba(0,229,255,0.04);
+    border: 1px solid var(--border);
+    padding: 0.6rem 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    display: flex; align-items: center; gap: 0.4rem;
+  }
+  .recipe-feature::before { content: '▸'; color: var(--accent); }
+
+  /* IOT DEVICES */
+  .device-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem;
+    margin-bottom: 1.25rem;
+  }
+  .device-item {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    padding: 0.6rem 0.75rem;
+    display: flex; align-items: center; gap: 0.5rem;
+    transition: border-color 0.2s;
+  }
+  .device-item:hover { border-color: var(--accent2); }
+  .device-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--green); flex-shrink: 0;
+    animation: blink 2s infinite;
+  }
+  .device-dot.off { background: var(--muted); animation: none; }
+  .device-name {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text);
+    letter-spacing: 0.05em;
+  }
+
+  .project-links {
+    display: flex; gap: 0.75rem; flex-wrap: wrap;
+  }
+
   /* FADE-IN */
   .reveal {
     opacity: 0;
@@ -572,9 +663,13 @@
   <h2 class="section-title reveal">Who I <span>Am</span></h2>
   <div class="about-grid">
     <div class="about-text reveal">
-      <p>I'm <strong>John Ivan B. Dimayuga</strong>, a 4th-year Bachelor of Science in Information Technology student at NEU. I have a strong passion for building web applications and exploring emerging technologies.</p>
-      <p>I enjoy tackling complex problems and turning them into simple, elegant digital experiences. My coursework and projects have given me a solid foundation in both front-end and back-end development.</p>
-      <p>When I'm not coding, I'm usually exploring new tech, reading documentation, or leveling up my skills in new frameworks and tools.</p>
+      <p>I am <strong>John Ivan B. Dimayuga</strong>, a 4th-year Bachelor of Science in Information Technology student at NEU,
+        with a strong interest in software development, web technologies, and emerging digital systems.</p>
+      <p>My academic background and project experience have provided me with a solid foundation in both front-end and back-end development,
+        as well as in system design, database management, and network fundamentals. I am particularly interested in building efficient,
+        user-centered applications that translate complex requirements into practical and scalable solutions.</p>
+      <p>Outside of academic work, I continuously explore new technologies, study technical documentation, and enhance my skills in modern frameworks,
+        development tools, and industry practices to further strengthen my technical capabilities.</p>
     </div>
     <div class="info-grid reveal">
       <div class="info-card">
@@ -606,7 +701,9 @@
   <div class="skills-inner">
     <div class="section-label reveal" data-num="02">Competencies</div>
     <h2 class="section-title reveal">Skills &amp; <span>Technologies</span></h2>
+
     <div class="skills-grid">
+
       <div class="skill-category reveal">
         <div class="skill-cat-title">Languages</div>
         <div class="skill-tags">
@@ -617,8 +714,10 @@
           <span class="skill-tag">Python</span>
           <span class="skill-tag">Java</span>
           <span class="skill-tag">SQL</span>
+          <span class="skill-tag">Kotlin</span>
         </div>
       </div>
+
       <div class="skill-category reveal">
         <div class="skill-cat-title">Frameworks &amp; Libraries</div>
         <div class="skill-tags">
@@ -629,6 +728,7 @@
           <span class="skill-tag">Laravel</span>
         </div>
       </div>
+
       <div class="skill-category reveal">
         <div class="skill-cat-title">Tools &amp; Platforms</div>
         <div class="skill-tags">
@@ -641,6 +741,18 @@
           <span class="skill-tag">Linux</span>
         </div>
       </div>
+
+      <div class="skill-category reveal">
+        <div class="skill-cat-title">Networking &amp; IoT</div>
+        <div class="skill-tags">
+          <span class="skill-tag">IoT Systems</span>
+          <span class="skill-tag">Arduino</span>
+          <span class="skill-tag">Cisco Networking</span>
+          <span class="skill-tag">Network Management</span>
+          <span class="skill-tag">Wokwi Simulator</span>
+        </div>
+      </div>
+
       <div class="skill-category reveal">
         <div class="skill-cat-title">Core Concepts</div>
         <div class="skill-tags">
@@ -652,6 +764,7 @@
           <span class="skill-tag">Agile</span>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -661,29 +774,75 @@
   <div class="section-label reveal" data-num="03">Work</div>
   <h2 class="section-title reveal">Featured <span>Projects</span></h2>
   <div class="projects-grid">
+
+    <!-- PROJECT 001: FLAVOR FINDS -->
     <div class="project-card reveal">
       <div class="project-num">PROJECT_001</div>
-      <div class="project-title">Personal Knowledge System</div>
-      <p class="project-desc">A structured personal knowledge management system built with Markdown notes, organized references, and a clean navigation system for academic and personal research.</p>
-      <div class="project-tech">
-        <span class="tech-badge">Markdown</span>
-        <span class="tech-badge">Obsidian</span>
-        <span class="tech-badge">HTML</span>
+      <div class="project-title">Flavor Finds</div>
+      <div class="project-img">
+        <div>
+          <span class="project-img-icon">🍽</span>
+              <img src="images/recipe-cover.png" alt="Flavor Finds Recipe Cover" />
+          <div class="img-label">recipe-cover.jpg</div>
+        </div>
       </div>
-      <a href="#" class="project-link">View Project</a>
+      <p class="project-desc">A modern recipe discovery app where users can browse, search, and view recipes with full ingredient lists and step-by-step cooking instructions.</p>
+      <div class="recipe-features">
+        <div class="recipe-feature">Browse Recipes</div>
+        <div class="recipe-feature">Search &amp; Filter</div>
+        <div class="recipe-feature">Ingredients List</div>
+        <div class="recipe-feature">Step-by-Step Guide</div>
+        <div class="recipe-feature">Categories</div>
+        <div class="recipe-feature">Featured Picks</div>
+      </div>
+      <div class="project-tech">
+        <span class="tech-badge">Kotlin</span>
+        <span class="tech-badge">Android Studio</span>
+        <span class="tech-badge">Android SDK</span>
+        <span class="tech-badge">XML Layout</span>
+      </div>
     </div>
+
+    <!-- PROJECT 002: SMART ENERGY SAVER -->
     <div class="project-card reveal">
       <div class="project-num">PROJECT_002</div>
-      <div class="project-title">Web Application Development</div>
-      <p class="project-desc">Full-stack web application developed as part of coursework, featuring user authentication, CRUD operations, and a responsive front-end interface.</p>
-      <div class="project-tech">
-        <span class="tech-badge">PHP</span>
-        <span class="tech-badge">MySQL</span>
-        <span class="tech-badge">JavaScript</span>
-        <span class="tech-badge">Bootstrap</span>
+      <div class="project-title">Smart Energy Saver</div>
+      <div class="project-img">
+        <div>
+          <span class="project-img-icon">⚡</span>
+              <img src="images/smart-energy-saver.png" alt="Smart Energy Saver Dashboard" />
+          <div class="img-label">dashboard-preview.jpg</div>
+        </div>
       </div>
-      <a href="#" class="project-link">View Project</a>
+      <p class="project-desc">An IoT-based smart home energy management system that monitors electricity usage, controls devices remotely, and provides AI-powered saving suggestions.</p>
+      <div class="device-grid">
+        <div class="device-item">
+          <span class="device-dot"></span>
+          <span class="device-name">💡 Smart Lights</span>
+        </div>
+        <div class="device-item">
+          <span class="device-dot"></span>
+          <span class="device-name">❄ Air Conditioner</span>
+        </div>
+        <div class="device-item">
+          <span class="device-dot off"></span>
+          <span class="device-name">🌀 Ceiling Fan</span>
+        </div>
+        <div class="device-item">
+          <span class="device-dot off"></span>
+          <span class="device-name">📺 Smart TV</span>
+        </div>
+      </div>
+      <div class="project-tech">
+        <span class="tech-badge">Arduino</span>
+        <span class="tech-badge">Wokwi Simulator</span>
+        <span class="tech-badge">IoT</span>
+        <span class="tech-badge">C / Embedded C</span>
+        <span class="tech-badge">Sensors & Actuators</span>
+      </div>
     </div>
+
+    <!-- PROJECT 003: PORTFOLIO -->
     <div class="project-card reveal">
       <div class="project-num">PROJECT_003</div>
       <div class="project-title">Digital Portfolio</div>
@@ -694,8 +853,11 @@
         <span class="tech-badge">JavaScript</span>
         <span class="tech-badge">Vercel</span>
       </div>
-      <a href="#" class="project-link">Live Site</a>
+      <div class="project-links">
+        <a href="#" class="project-link">Live Site</a>
+      </div>
     </div>
+
   </div>
 </section>
 
@@ -709,7 +871,10 @@
       <div class="edu-school">New Era University</div>
       <div class="edu-year">2021 — Present · Block 4-BSIT-2</div>
       <div class="edu-detail">
-        Specializing in software development, web technologies, and information systems. Coursework covers data structures, algorithms, database management, system analysis &amp; design, and network fundamentals.
+          Specializing in software development, web technologies, cybersecurity, and information systems.
+          Coursework covers data structures, algorithms, database management, system analysis & design,
+          network fundamentals, and network management. It also includes foundational cybersecurity principles
+          such as threat identification, system protection, and secure system design.
       </div>
     </div>
   </div>
