@@ -12,9 +12,29 @@
 
 ## 👤 About
 
-This is the personal digital portfolio of **Dimayuga, John Ivan B.**, a 4th-year Bachelor of Science in Information Technology student at **New Era University**, Block **4-BSIT-2**.
+# Personal Digital Portfolio
 
-The portfolio showcases projects, skills, education, and contact information in a dark, techy aesthetic — built with pure HTML, CSS, and JavaScript, and deployed via GitHub + Vercel.
+This is the personal digital portfolio of **Dimayuga, John Ivan B.**, a 4th-year Bachelor of Science in Information Technology student at **New Era University (NEU)**, Block **4-BSIT-2**.
+
+## Overview
+
+This portfolio showcases academic and technical work, including projects, technical skills, educational background, and contact information. It is designed with a modern dark-themed interface that reflects a technology-focused aesthetic.
+
+## Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript
+
+## Deployment
+
+This project is deployed using:
+- GitHub Pages / GitHub Repository Hosting
+- Vercel
+
+## Purpose
+
+The purpose of this portfolio is to present my growth as an IT student and demonstrate my skills in software development, web technologies, and system design through real-world projects.
 
 ---
 
