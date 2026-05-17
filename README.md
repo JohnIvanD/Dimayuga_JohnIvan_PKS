@@ -40,9 +40,7 @@ The purpose of this portfolio is to present my growth as an IT student and demon
 
 ## 🌐 Live Site
 
-🔗 [View Portfolio](https://dimayuga-johnivanpks.vercel.app)
-
-> ⚠️ Replace the link above with your actual Vercel URL after deployment.
+🔗 [View Portfolio](https://dimayuga-john-ivan-pks-3fwq.vercel.app)
 
 ---
 
